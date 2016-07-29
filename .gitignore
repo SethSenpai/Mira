@@ -1,0 +1,10 @@
+$ cat .gitignore
+
+#prevent login data from getting pushed
+data/login.json
+
+#prevent log file from getting pushed
+*.0
+
+#prevent nodemon settings file to be pushed
+nodemon.json

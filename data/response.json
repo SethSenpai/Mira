@@ -1,0 +1,128 @@
+{"response":[
+			{"excl":[
+							{"excited":[
+								{"string":"KYAAA, ", "id":"0"},
+								{"string":"WOOO, ", "id":"1"}
+										]},
+							{"slow":[
+								{"string":"Meh, ", "id":"0"},
+								{"string":"Alright, " , "id":"1"}
+										]},
+							{"happy":[
+								{"string":"EHEHE, ", "id":"0"},
+								{"string":"YAY, " , "id":"1"}
+										]},
+										
+							{"sad":[
+								{"string":"BAKA, ", "id":"0"},
+								{"string":"TSK, ","id":"1"},
+								{"string":"PFFT, " , "id":"2"}
+										]}
+							
+							]},
+			{"sent":[
+							{"roll":[
+									{"excited":[
+										{"string":"Dice were thrown! I rolled: ", "id":"0"},
+										{"string":"Time to roll! I got: ", "id":"1"}
+												]},
+									{"slow":[
+										{"string":"I'll roll some dice. I got: ", "id":"0"},
+										{"string":"I rolled: ", "id":"1"}
+												]},
+									{"happy":[
+										{"string":"Rolling! I got: ", "id":"0"},
+										{"string":"I rolled and got: ", "id":"1"}
+												]},
+												
+									{"sad":[
+										{"string":"I rolled:  ", "id":"0"},
+										{"string":"I got: ", "id":"1"}
+												]}	
+										]},
+							{"moe":[
+									{"excited":[
+											
+												]},
+									{"slow":[
+									
+												]},
+									{"happy":[
+									
+												]},
+												
+									{"sad":[
+									
+												]}
+										]},
+							{"hentai":[
+									{"excited":[
+											
+												]},
+									{"slow":[
+									
+												]},
+									{"happy":[
+									
+												]},
+												
+									{"sad":[
+									
+												]}
+										]},
+										
+							{"pet":[
+									{"excited":[
+											
+												]},
+									{"slow":[
+									
+												]},
+									{"happy":[
+									
+												]},
+												
+									{"sad":[
+									
+												]}
+										]},
+										
+							{"8ball":[
+									{"excited":[
+											
+												]},
+									{"slow":[
+									
+												]},
+									{"happy":[
+									
+												]},
+												
+									{"sad":[
+									
+												]}
+										]}
+										
+							
+							]},
+			{"emote":[
+							{"excited":[
+								{"string":"o(≧∇≦o)", "id":"0"},
+								{"string":"o(〃＾▽＾〃)o", "id":"1"}
+										]},
+							{"slow":[
+								{"string":"(´•ω•̥`)", "id":"0"},
+								{"string":"(´ . .̫ . `)" , "id":"1"}
+										]},
+							{"happy":[
+								{"string":"ヾ(｡･ω･)ｼ", "id":"0"},
+								{"string":"(*≧▽≦)", "id":"1"}
+										]},
+										
+							{"sad":[
+								{"string":"(;¬_¬)", "id":"0"},
+								{"string":"( ب_ب )", "id":"1"}
+										]}			
+							]}
+
+			]}
