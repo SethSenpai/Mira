@@ -13,14 +13,16 @@ var jsonBlack = 'data/moeBlacklist.json';
 var jsonResponse = 'data/response.json';
 var jsonLogin = 'data/login.json';
 
+//conts
+const loginObj = require('./data/login.json');
+const responseObj = require('./data/response.json');
+
 //GLOBAL VARIABLES
 var mybot = new Discord.Client();
 var rl = readline.createInterface(process.stdin, process.stdout);
 var petnr = 0;
 var whitelistObj;
 var blacklistObj;
-var responseObj;
-var loginObj;
 var blackArrayId = [];
 var whiteArrayId = [];
 var channelArray = [];
@@ -795,14 +797,7 @@ mybot.on("message", function(message){
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-loadLogin();
 mybot.login(loginObj.email, loginObj.password);
-
-function loadLogin(){
-	//read login data
-	loginObj = jsonfile.readFileSync(jsonLogin);
-	console.log(funcFile.getDateTime() + " loaded login data".green);
-}
 
 function loadJsonData() {
 	
@@ -839,14 +834,6 @@ function loadJsonData() {
 			var temp = obj.blacklist[i].id;
 			blackArrayId.push(temp);
 		}
-	});
-	
-	//response json
-	jsonfile.readFile(jsonResponse, function(err , obj){
-		if(err){console.log("error: " + err)}
-		responseObj = obj;
-		//console.log(responseObj);
-		//console.log(responseObj['response'][0]['excl'][0]['excited'][0].string)
 	});
 	
 	console.log(funcFile.getDateTime() + " loaded json data".green);
