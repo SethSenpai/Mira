@@ -72,8 +72,9 @@
 										]},
 										
 							{"pet":[
-									{"excited":[
-											
+									{"excited":[										
+										{"string":"Thank you for petting me ", "id":"0"},
+										{"string":"I got petted for the ", "id":"1"}	
 												]},
 									{"slow":[
 									
