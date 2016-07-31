@@ -42,6 +42,7 @@ var mdLE = 0;
 var mdSH = 0;
 var lastFunc = "empty"
 var normTimer;
+var normDeltaTimer;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //ON BOT LOAD/////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -52,6 +53,7 @@ mybot.on("ready", function(){
 	loadJsonData();
 	updateHelpText();
 	normTimer = setInterval(normaliseMood,10000);
+	normDeltaTimer = setInterval(normaliseDeltaMood, 50000)
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -464,7 +466,17 @@ mybot.on("message", function(message){
 	{
 		petnr ++;
 		if(petnr == 1){mybot.sendMessage(message, "``KYAAA, I have been patted " + petnr + " time o(≧∇≦o)``");}
-		else{mybot.sendMessage(message, "``KYAAA, I have been patted " + petnr + " times o(≧∇≦o)``");}
+		else{
+			if(Math.floor((Math.random() * 100)) > 50){
+			mybot.sendMessage(message, "``" + getResponse('pet',0) + petnr + " times``");
+			}
+			else{
+			mybot.sendMessage(message, "``" + getResponse('pet',1) + petnr + "th time``");	
+			}
+			
+			addMood(1,2,'pet');
+			}
+		
 		var rndnr = Math.floor((Math.random() * 100) + 1);
 		if(rndnr == 42 || rndnr == 73){mybot.sendMessage(message,"http://i.imgur.com/4XYDGi0.gif")}
 		if(rndnr == 22 || rndnr == 87){mybot.sendMessage(message,"http://i.imgur.com/rVxx789.gif")}
@@ -556,14 +568,18 @@ mybot.on("message", function(message){
 						if (pmmod === " ")
 						{
 							rolltotal = rolltotal;
-							mybot.reply(message,"``I rolled " + roll + ". For a total of " + rolltotal +"! ヾ(´▽｀;)ゝ``");
+							var rngres = Math.floor((Math.random()*2));
+							mybot.reply(message,"``" + getResponse("roll",rngres) + roll + ". Totalling: " + rolltotal + "``");
 							console.log(funcFile.getDateTime() + " Rolled ".cyan + roll + ". For a total of ".cyan + rolltotal +"!".cyan);
 						}
 						else
 						{
-						mybot.reply(message, "``I rolled " + roll + ". With modifier "+pmmod+mod+". For a total of " + rolltotal +"! ヾ(´▽｀;)ゝ``");
+						var rngres = Math.floor((Math.random()*2));
+						mybot.reply(message,"``" + getResponse("roll",rngres) + roll + ". With modifier "+pmmod+mod+". Totalling: " + rolltotal + "``");
+						//mybot.reply(message, "``I rolled " + roll + ". With modifier "+pmmod+mod+". For a total of " + rolltotal +"! ヾ(´▽｀;)ゝ``");
 						console.log(funcFile.getDateTime() + " Rolled ".cyan + roll + ". With modifier ".cyan+pmmod+mod+". For a total of ".cyan + rolltotal +"!".cyan);
 						}
+						addMood(0.5 , 0.5 , "roll")
 					}
 				
 			}
@@ -683,6 +699,7 @@ mybot.on("message", function(message){
 				if(tags == " seth" || tags == " Seth"){mybot.updateMessage(msg,"``Look at this cutie ヾ(´▽｀;)ゝ`` http://i.imgur.com/kQcKFuh.jpg");}
 				else if(tags == " frankie" || tags == " Frankie"){mybot.updateMessage(msg,"``Look at this cutie ヾ(´▽｀;)ゝ`` http://i.imgur.com/GG9AwbQ.jpg");}
 				else if(tags == " sass" || tags == " Sass"){mybot.updateMessage(msg,"``Look at this cutie ヾ(´▽｀;)ゝ`` https://i.imgur.com/BWYYUUj.png");}
+				else if(tags == " jonathan" || tags == " Jonathan"){mybot.updateMessage(msg,"``Look at this cutie ヾ(´▽｀;)ゝ`` http://i.imgur.com/hTJSTta.jpg");}
 				else
 				{
 					Danbooru.search('rating:safe ' + tags,{limit: 500}, function(err, data) 
@@ -863,7 +880,7 @@ function getResponse(func,depth) {
 	//exclamation variables needed
 	var exRn = 3;
 	var exRnS = "sad";
-	var Rn = 0;
+	var Rn = depth;
 	
 	//emote variables needed
 	var emRn = 1;
@@ -883,6 +900,10 @@ function getResponse(func,depth) {
 		case "hentai":
 			funcnr = 2;
 		break;	
+		
+		case "pet":
+			funcnr = 3;
+		break;	
 	}
 	
 	//function variables needed
@@ -896,21 +917,21 @@ function getResponse(func,depth) {
 	//determine if slow of excited
 	if(rng > mLE){
 		sLE = "slow";
-		console.log("slow");
+		//console.log("slow");
 	}
 	else{
 		sLE = "excited";
-		console.log("excited");
+		//console.log("excited");
 	}
 	//determine if happy or sad
 	rng = Math.floor((Math.random() * 100));
 	if(rng > mSH){
 		sSH = "sad";
-		console.log("sad");
+		//console.log("sad");
 	}
 	else{
 		sSH = "happy";
-		console.log("happy");
+		//console.log("happy");
 	}
 	//determine for each part of the sentence what emotion to use
 	//starting with the exclamation
@@ -947,16 +968,16 @@ function getResponse(func,depth) {
 	
 	var totalString = responseObj['response'][2]['emote'][emRn][emRnS][Rn].string + " " + responseObj['response'][0]['excl'][exRn][exRnS][Rn].string;
 	totalString = totalString + responseObj['response'][1]['sent'][funcnr][func][fnRn][fnRnS][Rn].string;
-	console.log(totalString);
-	
+	//console.log(totalString);
+	return totalString;
 }
 
 function addMood(weightLE,weightSH,funcString){
 	
 	//check if delta should be shifted
 	if (funcString == lastFunc){
-	mdLE = mdLE + parseInt(weightLE);
-	mdSH = mdSH + parseInt(weightSH);
+	mdLE = mdLE + parseFloat(weightLE);
+	mdSH = mdSH + parseFloat(weightSH);
 	}
 	else{
 		lastFunc = funcString;
@@ -996,4 +1017,22 @@ function normaliseMood(){
 		mSH--;
 	}
 	//console.log("normalising mood " + mLE +" "+ mSH);
+}
+
+function normaliseDeltaMood(){
+		
+	if(mdLE < 0){
+		mdLE = 0;
+	}
+	if(mdLE > 0){
+		mdLE--;
+	}
+	
+	if(mdSH < 0){
+		mdSH = 0;
+	}
+	if(mdSH > 0){
+		mdSH--;
+	}
+	//console.log("normalising delta mood " + mdLE +" "+ mdSH);
 }

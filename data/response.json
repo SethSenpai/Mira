@@ -73,18 +73,21 @@
 										
 							{"pet":[
 									{"excited":[										
-										{"string":"Thank you for petting me ", "id":"0"},
-										{"string":"I got petted for the ", "id":"1"}	
+										{"string":"I've been petted ", "id":"0"},
+										{"string":"I love headpats, thats the ", "id":"1"}	
 												]},
 									{"slow":[
-									
+										{"string":"I've been petted ", "id":"0"},
+										{"string":"I got petted for the ", "id":"1"}
 												]},
 									{"happy":[
-									
+										{"string":"Thank you for petting me ", "id":"0"},
+										{"string":"Being patted is great, especially the ", "id":"1"}
 												]},
 												
 									{"sad":[
-									
+										{"string":"..... ", "id":"0"},
+										{"string":"I guess thats the ", "id":"1"}
 												]}
 										]},
 										
