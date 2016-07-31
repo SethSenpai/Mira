@@ -4,6 +4,6 @@ A discord bot inspired on a robot from the anime [Dimension W](http://myanimelis
 
 ##todo-list:
 + populate response.json
-+ fix rng pick of response segment
 + add mood alteration and new response to old commands
++ break up miraBot.js in more manageble chunks
 
