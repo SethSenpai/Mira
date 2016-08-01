@@ -19,6 +19,7 @@ const responseObj = require('./data/response.json');
 
 //GLOBAL VARIABLES
 var mybot = new Discord.Client();
+var authedBooru = new Danbooru({login: loginObj.login, api_key: loginObj.API});
 var rl = readline.createInterface(process.stdin, process.stdout);
 var petnr = 0;
 var whitelistObj;
@@ -343,6 +344,13 @@ mybot.on("message", function(message){
 		mybot.sendMessage(message, "``pon ( ´ ▽ ` )ﾉ``");
 		console.log(funcFile.getDateTime() + " pinged in: ".cyan + message.channel.name + " Name: ".cyan + message.author.name);
 		//mybot.sendMessage("140488117005058048", "extra line")
+	}
+
+//fundraiser
+	if(message.content == "!fundraiser")
+	{
+		mybot.sendMessage(message, "https://sethsenpai.github.io/fundRaiser/");
+		console.log(funcFile.getDateTime() + " Fundraiser Name: ".cyan + message.author.name);
 	}	
 	
 //hilko
@@ -605,12 +613,12 @@ mybot.on("message", function(message){
 				if(tags == "Reese" || tags == "reese"){mybot.updateMessage(msg, "``Wow thats lewd! (灬♥ω♥灬)`` http://i.imgur.com/mHQePkd.jpg"); }
 				else
 				{
-					Danbooru.search('rating:explicit ' + tags,{limit: 500}, function(err, data) 
+					authedBooru.search('rating:explicit ' + tags,{limit: 500}, function(err, data) 
 					{
 						if(err)
 						{
 							console.log(funcFile.getDateTime() + " Caught error in tags.".cyan);
-							mybot.updateMessage(msg, "``only 1 tag at a time and no extra lines please, my cpu can't keep up! (≧д≦ヾ)``")
+							mybot.updateMessage(msg, "``Something went wrong! Did you use at maximum 5 tags and no newlines? (≧д≦ヾ)``")
 						}
 						else
 						{
@@ -658,7 +666,7 @@ mybot.on("message", function(message){
 			mybot.sendMessage(message, "``Looking for something lewd ヾ(｡･ω･)ｼ``", function(errm, msg)
 			{
 				console.log(funcFile.getDateTime() + " Hentai requested ".cyan + "Name: ".cyan + message.author.name);
-				Danbooru.search('rating:explicit',{limit: 5000}, function(err, data) 
+				authedBooru.search('rating:explicit',{limit: 5000}, function(err, data) 
 				{
 					if(err) throw err;
 					var post = data.random();
@@ -702,12 +710,12 @@ mybot.on("message", function(message){
 				else if(tags == " jonathan" || tags == " Jonathan"){mybot.updateMessage(msg,"``Look at this cutie ヾ(´▽｀;)ゝ`` http://i.imgur.com/hTJSTta.jpg");}
 				else
 				{
-					Danbooru.search('rating:safe ' + tags,{limit: 500}, function(err, data) 
+					authedBooru.search('rating:safe ' + tags,{limit: 500}, function(err, data) 
 					{
 						if(err)
 						{
 							console.log(funcFile.getDateTime() + " Caught error in tags.".cyan);
-							mybot.updateMessage(msg, "``only 1 tag at a time and no extra lines please, my cpu can't keep up! (≧д≦ヾ)``");
+							mybot.updateMessage(msg, "``Something went wrong! Did you use at maximum 5 tags and no newlines? (≧д≦ヾ)``");
 						}
 						else
 						{
@@ -715,7 +723,7 @@ mybot.on("message", function(message){
 							if(post == undefined)
 							{
 								console.log(funcFile.getDateTime() + " Tag not found".cyan);
-								mybot.updateMessage(msg, "``I could not find something cute called" + tags + " (´•ω•̥`)``");
+								mybot.updateMessage(msg, "``I could not find something cute with the tags:" + tags + " (´•ω•̥`)``");
 							}
 							else
 							{
@@ -752,7 +760,7 @@ mybot.on("message", function(message){
 			mybot.sendMessage(message, "``Looking for something cute ヾ(｡･ω･)ｼ``", function(errm, msg)
 			{
 				console.log(funcFile.getDateTime() + " Moe requested ".cyan + "Name: ".cyan + message.author.name);
-				Danbooru.search('rating:safe -comic',{limit: 5000}, function(err, data) 
+				authedBooru.search('rating:safe -comic',{limit: 5000}, function(err, data) 
 				{
 					if(err) throw err;
 					var post = data.random();
