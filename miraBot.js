@@ -1,3 +1,8 @@
+// PEOPLE THAT GAVE ME MONEY SO I COULD BUILD A BETTER BOT
+// Official Jonathan
+// Ruiqi Mao, !pet
+
+
 //REQUIRED PACKAGES
 var Discord = require("discord.js");
 var Danbooru = require('danbooru');
@@ -708,6 +713,7 @@ mybot.on("message", function(message){
 				else if(tags == " frankie" || tags == " Frankie"){mybot.updateMessage(msg,"``Look at this cutie ヾ(´▽｀;)ゝ`` http://i.imgur.com/GG9AwbQ.jpg");}
 				else if(tags == " sass" || tags == " Sass"){mybot.updateMessage(msg,"``Look at this cutie ヾ(´▽｀;)ゝ`` https://i.imgur.com/BWYYUUj.png");}
 				else if(tags == " jonathan" || tags == " Jonathan"){mybot.updateMessage(msg,"``Look at this cutie ヾ(´▽｀;)ゝ`` http://i.imgur.com/hTJSTta.jpg");}
+				else if(tags == " ruiqi" || tags == " Ruiqi"){mybot.updateMessage(msg,"``Look at this cutie ヾ(´▽｀;)ゝ`` http://i.imgur.com/12PS5Lw.png");}
 				else
 				{
 					authedBooru.search('rating:safe ' + tags,{limit: 500}, function(err, data) 
