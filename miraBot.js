@@ -607,7 +607,7 @@ mybot.on("message", function(message){
 	if(message.content.indexOf("!hentai ") >= 0 && message.content.indexOf("!hentai ") <= 0)
 	{
 		//whitelist check
-		if(whiteArrayId.indexOf(message.channel.id) > -1)
+		if(whiteArrayId.indexOf(message.channel.id) > -1 || message.author == message.channel.recipient)
 		{
 		
 			console.log(funcFile.getDateTime() + " Hentai requested ".cyan + "Name: ".cyan + message.author.name);
@@ -666,7 +666,7 @@ mybot.on("message", function(message){
 	if(message.content === "!hentai")
 	{
 		//whitelist check
-		if(whiteArrayId.indexOf(message.channel.id) > -1)
+		if(whiteArrayId.indexOf(message.channel.id) > -1 || message.author == message.channel.recipient)
 		{
 			mybot.sendMessage(message, "``Looking for something lewd ヾ(｡･ω･)ｼ``", function(errm, msg)
 			{
