@@ -8,5 +8,6 @@ A discord bot inspired on a robot from the anime [Dimension W](http://myanimelis
 + populate response.json
 + make !pet gif responses hooked to mood
 + add mood alteration and new response to old commands
++ filter out .zip files from dan responses. Leaving the .webm files because of discord support.
 + break up miraBot.js in more manageble chunks
 

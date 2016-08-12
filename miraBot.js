@@ -42,8 +42,8 @@ var helpTextString = "I have several functions that you can use: \n " +
 					
 var creatorID;
 //mood variables, lower is more depressing normal should be around 80
-var mLE = 80;
-var mSH = 80;
+var mLE = 95;
+var mSH = 95;
 var mdLE = 0;
 var mdSH = 0;
 var lastFunc = "empty"
@@ -349,6 +349,13 @@ mybot.on("message", function(message){
 		mybot.sendMessage(message, "``pon ( ´ ▽ ` )ﾉ``");
 		console.log(funcFile.getDateTime() + " pinged in: ".cyan + message.channel.name + " Name: ".cyan + message.author.name);
 		//mybot.sendMessage("140488117005058048", "extra line")
+	}
+	
+//zeal
+	if(message.content == "!zeal")
+	{
+		mybot.sendMessage(message, "``No, Zeal is not a chef. He just eats out a lot. (that rich bastard) On a serious note, just no time to go home and cook.``");
+		console.log(funcFile.getDateTime() + " zeal questioned. Name: ".cyan + message.author.name);
 	}
 
 //fundraiser
@@ -997,8 +1004,8 @@ function addMood(weightLE,weightSH,funcString){
 		lastFunc = funcString;
 		mdLE = 0;
 		mdSH = 0;
-		if(mLE < 50){mLE = 50;}
-		if(mSH < 50){mSH = 50;}
+		if(mLE < 70){mLE = 70;}
+		if(mSH < 70){mSH = 70;}
 	}
 	
 	//formula to add to the mood numbers
@@ -1017,17 +1024,17 @@ function addMood(weightLE,weightSH,funcString){
 }
 
 function normaliseMood(){
-	if(mLE < 79){
+	if(mLE < 94){
 		mLE++;
 	}
-	if(mLE > 81){
+	if(mLE > 96){
 		mLE--;
 	}
 	
-	if(mSH < 79){
+	if(mSH < 94){
 		mSH++;
 	}
-	if(mSH > 81){
+	if(mSH > 96){
 		mSH--;
 	}
 	//console.log("normalising mood " + mLE +" "+ mSH);
