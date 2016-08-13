@@ -5,7 +5,6 @@
 
 //REQUIRED PACKAGES
 var Discord = require("discord.js");
-var Danbooru = require('danbooru');
 var readline = require('readline');
 var jsonfile = require('jsonfile');
 var consolecolors = require('consolecolors');
@@ -32,13 +31,11 @@ const loginObj = require('./data/login.json');
 
 //GLOBAL VARIABLES
 var mybot = new Discord.Client();
-var authedBooru = new Danbooru({login: loginObj.login, api_key: loginObj.API});
 var rl = readline.createInterface(process.stdin, process.stdout);
 var whitelistObj;
 var blacklistObj;
 var blackArrayId = [];
 var whiteArrayId = [];
-var serverArray = [];
 var helpTextString;
 var creatorID;
 
@@ -87,7 +84,7 @@ mybot.on("disconnected", function(){
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 mybot.on("message", function(message){
 	
-	dan.danPull(message, whiteArrayId, blackArrayId, mybot, authedBooru, funcFile);
+	dan.danPull(message, mybot, funcFile, whiteArrayId, blackArrayId);
 	
 	meme.justMemes(message, mybot , funcFile);
 	
