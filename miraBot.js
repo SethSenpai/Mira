@@ -39,13 +39,7 @@ var blacklistObj;
 var blackArrayId = [];
 var whiteArrayId = [];
 var serverArray = [];
-var helpTextString = "I have several functions that you can use: \n " +
-					 "[!8ball] ask me a question. \n "+
-					 "[!pet] or [!pat] to pet me for being a good robot! \n "+
-					 "[!roll xdy] to have me roll some dice, example: !roll 2d6 \n "+
-					 "[!hentai tag] lets me post a random lewd picture if there is not tag specified, otherwise its a lewd picture with the tag specified. \n"+
-					 "[!moe tag] works the same way as its lewder counterpart but less lewd. (generally sfw) \n"
-					
+var helpTextString;
 var creatorID;
 
 
@@ -86,12 +80,6 @@ mybot.on("disconnected", function(){
 	console.log(funcFile.getDateTime() + " Bot disconnected".red);
 	mybot.login(loginObj.email, loginObj.password);
 	console.log(funcFile.getDateTime() + " Attempting login: ".yellow);
-	helpTextString = "I have several functions that you can use: \n " +
-					 "[!8ball] ask me a question. \n "+
-					 "[!pet] or [!pat] to pet me for being a good robot! \n "+
-					 "[!roll xdy] to have me roll some dice, example: !roll 2d6 \n "+
-					 "[!hentai tag] lets me post a random lewd picture if there is not tag specified, otherwise its a lewd picture with the tag specified. \n"+
-					 "[!moe tag] works the same way as its lewder counterpart but less lewd. (generally sfw) \n"
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -178,7 +166,14 @@ function updateHelpText() {
 	
 	mybot.sendMessage("189453553444585472", funcFile.getDateTime() + " I woke up!", function(err,msg){
 	creatorID = msg.channel.recipient;
-	helpTextString = helpTextString + "I was made by "+creatorID.mention()+", send him a message if you have further questions about me!";
+	helpTextString = "I have several functions that you can use: \n " +
+					 "[!8ball] ask me a question. \n "+
+					 "[!pet] or [!pat] to pet me for being a good robot! \n "+
+					 "[!roll xdy] to have me roll some dice, example: !roll 2d6 \n "+
+					 "[!hentai tag] lets me post a random lewd picture if there is not tag specified, otherwise its a lewd picture with the tag specified. \n"+
+					 "[!moe tag] works the same way as its lewder counterpart but less lewd. (generally sfw) \n"+
+					 "There are also some private memes hidden in my programming, maybe you will find them, maybe not. \n"+
+					 "I was made by "+creatorID.mention()+", send him a message if you have further questions about me!";
 	});
 	
 }
