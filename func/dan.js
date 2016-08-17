@@ -1,9 +1,12 @@
+//load danbooru module
 var Danbooru = require('danbooru');
+//load login data
 const loginObj = require('./../data/login.json');
+//authenticate account with login data
 var authedBooru = new Danbooru({login: loginObj.login, api_key: loginObj.API});
 
 
-//hentai command
+//function that exports the whole danbooru pull section
 exports.danPull = function(message, mybot, funcFile, whiteArrayId, blackArrayId)
 {
 	if(message.content.indexOf("!hentai ") >= 0 && message.content.indexOf("!hentai ") <= 0)

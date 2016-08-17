@@ -59,7 +59,7 @@ rl.setPrompt('>');
 rl.on('line', function(line) {
 	
 	//hackaround so the bot reloads its whitelist and blacklist arrays
-	var reload = consl.readConsole(line, mybot, funcFile, mood, blacklistObj, whitelistObj);
+	var reload = consl.readConsole(line, mybot, mood, blacklistObj, whitelistObj);
 	if(reload == true){
 		loadJsonData();
 		reload = false;
@@ -104,8 +104,9 @@ mybot.on("message", function(message){
 // test crash
 	if(message.content === "!emp" && message.author == creatorID)
 	{
+		//elegant programming as always 
 		console.log(funcFile.getDateTime() + " Crashing now!".red);
-		var we = poopyfaceArray[999];
+		var heh = heh[666];
 	}
 	
 });
@@ -174,5 +175,3 @@ function updateHelpText() {
 	});
 	
 }
-
-

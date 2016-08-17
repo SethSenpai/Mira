@@ -1,14 +1,18 @@
-//console goes here
-//command line talking
+//console side commands
+var funcFile = require('./remoteFunctions.js');
+
+//channel and server arrays used in join, leave, chlist, say and broadcast
 var channelArray = [];
 var serverArray = [];
 
+//jsonfile required for easy async read write to json files
 var jsonfile = require('jsonfile');
+
+//file location for whitelist and blacklist
 var jsonWhite = 'data/hentaiWhitelist.json';
 var jsonBlack = 'data/moeBlacklist.json';
-var funcFile = require('./remoteFunctions.js');
 
-exports.readConsole = function(line, mybot, funcFile, mood, blacklistObj, whitelistObj){
+exports.readConsole = function(line, mybot, mood, blacklistObj, whitelistObj){
 	
 	if(line.indexOf("say ") >= 0 )
 	{
