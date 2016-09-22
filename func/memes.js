@@ -1,4 +1,3 @@
-//memes go here
 exports.justMemes = function(message, mybot , funcFile){
 	//ping command	
 	if(message.content === "pin")
@@ -21,6 +20,14 @@ exports.justMemes = function(message, mybot , funcFile){
 		mybot.sendMessage(message, "https://sethsenpai.github.io/fundRaiser/");
 		console.log(funcFile.getDateTime() + " Fundraiser Name: ".cyan + message.author.name);
 	}	
+
+//anime
+        if(message.content == "!anime")
+        {
+                mybot.sendMessage(message, "http://puu.sh/r17AO/4b3489b07b.jpg");
+                console.log(funcFile.getDateTime() + " Where are the Anime flikkers? Name: ".cyan + message.author.name);
+        }
+
 	
 //hilko
 	if(message.content == "!hilko")
@@ -28,6 +35,20 @@ exports.justMemes = function(message, mybot , funcFile){
 		mybot.sendMessage(message, "http://static4.koken.vtm.be/sites/koken.vtm.be/files/styles/vmmaplayer_big/public/recipe/image/kaasfondue_2.jpg?itok=Fz-TX-HM");
 		console.log(funcFile.getDateTime() + " Where is hilko? Name: ".cyan + message.author.name);
 	}
+
+//daryll
+	if(message.content == "!daryll")
+	{
+		mybot.sendMessage(message, "http://i.imgur.com/v4ftB0N.png");
+		console.log(funcFile.getDateTime() + " Where is daryll? Name: ".cyan + message.author.name);
+	}
+	
+//seth
+	if(message.content == "!seth")
+	{
+		mybot.sendMessage(message, "http://www.pako-rhenen.nl/uploads/photos/img_0461.jpg");
+		console.log(funcFile.getDateTime() + " Where is seth? Name: ".cyan + message.author.name);
+	}	
 	
 //erik
 	if(message.content == "!erik")

@@ -21,6 +21,7 @@ exports.danPull = function(message, mybot, funcFile, whiteArrayId, blackArrayId)
 				var tags = message.content.substring(8);
 				console.log(funcFile.getDateTime() + " Tag: ".cyan + tags);
 				if(tags == "Reese" || tags == "reese"){mybot.updateMessage(msg, "``Wow thats lewd! (灬♥ω♥灬)`` http://i.imgur.com/mHQePkd.jpg"); }
+				else if(tags == "ruiqi" || tags == "Ruiqi"){mybot.updateMessage(msg, "``Wow thats lewd!  (灬♥ω♥灬)`` http://i.imgur.com/HjNMXKh.gifv"); }
 				else
 				{
 					authedBooru.search('rating:explicit ' + tags,{limit: 500}, function(err, data) 
