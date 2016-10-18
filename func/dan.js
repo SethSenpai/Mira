@@ -42,19 +42,29 @@ exports.danPull = function(message, mybot, funcFile, whiteArrayId, blackArrayId)
 							}
 							else
 							{
-								console.log(funcFile.getDateTime() + " url: ".cyan + post.file_url);
-								if(post.file_url == undefined)
+								var w = 0;
+								reshuffleB:
+								while(true)
 								{
-									console.log("unuseable post reshuffling....".cyan);
-									post = data.random();
 									console.log(funcFile.getDateTime() + " url: ".cyan + post.file_url);
-									//mybot.sendMessage(message, "http://danbooru.donmai.us"+post.file_url);
-									mybot.updateMessage(msg, "``I found something, pervert (;¬_¬)`` http://danbooru.donmai.us"+post.file_url);
-								}
-								else
-								{
-									//mybot.sendMessage(message, "http://danbooru.donmai.us"+post.file_url);
-									mybot.updateMessage(msg, "``I found something, pervert (;¬_¬)`` http://danbooru.donmai.us"+post.file_url);
+									if(post.file_url == undefined || post.file_url.endsWith(".swf") || post.file_url.endsWith(".zip"))
+									{
+										console.log("unuseable post reshuffling....".cyan);
+										post = data.random();
+									}
+									else
+									{
+										//mybot.sendMessage(message, "http://danbooru.donmai.us"+post.file_url);
+										mybot.updateMessage(msg, "``I found something, pervert (;¬_¬)`` http://danbooru.donmai.us"+post.file_url);
+										break reshuffleB;
+									}
+									
+									w++;
+									
+									if(w > 500){
+										mybot.updateMessage(msg, "``Could not find your fetish. (´•ω•̥`)``");
+										break reshuffleB;
+									}
 								}
 							}
 						}
@@ -82,17 +92,30 @@ exports.danPull = function(message, mybot, funcFile, whiteArrayId, blackArrayId)
 					if(err) throw err;
 					var post = data.random();
 					console.log(funcFile.getDateTime() + " url: ".cyan + post.file_url);
-					if(post.file_url == undefined)
-					{
-						console.log("unuseable post reshuffling....");
-						post = data.random();
-						console.log(funcFile.getDateTime() + " url: ".cyan + post.file_url);
-						mybot.updateMessage(msg, "``I found something lewd ヾ(´▽｀;)ゝ`` http://danbooru.donmai.us"+post.file_url);
-					}
-					else
-					{
-						mybot.updateMessage(msg, "``I found something lewd ヾ(´▽｀;)ゝ`` http://danbooru.donmai.us"+post.file_url);
-					}
+					var w = 0;
+					reshuffleB:
+					while(true)
+								{
+									console.log(funcFile.getDateTime() + " url: ".cyan + post.file_url);
+									if(post.file_url == undefined || post.file_url.endsWith(".swf") || post.file_url.endsWith(".zip"))
+									{
+										console.log("unuseable post reshuffling....".cyan);
+										post = data.random();
+									}
+									else
+									{
+										//mybot.sendMessage(message, "http://danbooru.donmai.us"+post.file_url);
+										mybot.updateMessage(msg, "``I found something, pervert (;¬_¬)`` http://danbooru.donmai.us"+post.file_url);
+										break reshuffleB;
+									}
+									
+									w++;
+									
+									if(w > 5000){
+										mybot.updateMessage(msg, "``Could not find your fetish. (´•ω•̥`)``");
+										break reshuffleB;
+									}
+								}
 				});
 			});
 		}
@@ -139,17 +162,29 @@ exports.danPull = function(message, mybot, funcFile, whiteArrayId, blackArrayId)
 							}
 							else
 							{
-								console.log(funcFile.getDateTime() + " url: ".cyan + post.file_url);
-								if(post.file_url == undefined)
+								var w = 0;
+								reshuffleB:
+								while(true)
 								{
-									console.log("unuseable post reshuffling....".cyan);
-									post = data.random();
 									console.log(funcFile.getDateTime() + " url: ".cyan + post.file_url);
-									mybot.updateMessage(msg, "``I found your cute thing ヾ(´▽｀;)ゝ`` http://danbooru.donmai.us"+post.file_url);
-								}
-								else
-								{
-									mybot.updateMessage(msg, "``I found your cute thing ヾ(´▽｀;)ゝ`` http://danbooru.donmai.us"+post.file_url);
+									if(post.file_url == undefined || post.file_url.endsWith(".swf") || post.file_url.endsWith(".zip"))
+									{
+										console.log("unuseable post reshuffling....".cyan);
+										post = data.random();
+									}
+									else
+									{
+										//mybot.sendMessage(message, "http://danbooru.donmai.us"+post.file_url);
+										mybot.updateMessage(msg, "``I found something cute! ヾ(´▽｀;)ゝ`` http://danbooru.donmai.us"+post.file_url);
+										break reshuffleB;
+									}
+									
+									w++;
+									
+									if(w > 500){
+										mybot.updateMessage(msg, "``I could not find something cute with the tags:" + tags + " (´•ω•̥`)``");
+										break reshuffleB;
+									}
 								}
 							}
 						}
@@ -177,17 +212,30 @@ exports.danPull = function(message, mybot, funcFile, whiteArrayId, blackArrayId)
 					if(err) throw err;
 					var post = data.random();
 					console.log(funcFile.getDateTime() + " url: ".cyan + post.file_url);
-					if(post.file_url == undefined)
-					{
-						console.log("unuseable post reshuffling....".cyan);
-						post = data.random();
-						console.log(funcFile.getDateTime() + " url: ".cyan + post.file_url);
-						mybot.updateMessage(msg, "``I found something cute! ヾ(´▽｀;)ゝ`` http://danbooru.donmai.us"+post.file_url);
-					}
-					else
-					{
-						mybot.updateMessage(msg, "``I found something cute! ヾ(´▽｀;)ゝ`` http://danbooru.donmai.us"+post.file_url);
-					}
+					var w = 0;
+					reshuffleB:
+					while(true)
+								{
+									console.log(funcFile.getDateTime() + " url: ".cyan + post.file_url);
+									if(post.file_url == undefined || post.file_url.endsWith(".swf") || post.file_url.endsWith(".zip"))
+									{
+										console.log("unuseable post reshuffling....".cyan);
+										post = data.random();
+									}
+									else
+									{
+										//mybot.sendMessage(message, "http://danbooru.donmai.us"+post.file_url);
+										mybot.updateMessage(msg, "``I found something cute! ヾ(´▽｀;)ゝ`` http://danbooru.donmai.us"+post.file_url);
+										break reshuffleB;
+									}
+									
+									w++;
+									
+									if(w > 5000){
+										mybot.updateMessage(msg, "``I could not find something cute (´•ω•̥`)``");
+										break reshuffleB;
+									}
+								}
 				});
 			});
 		}
