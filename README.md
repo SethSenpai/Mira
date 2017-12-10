@@ -1,5 +1,7 @@
-(Adult) Entertainment bot for discord
+DECREPIT (Adult) Entertainment bot for discord
 =====================================
+Mira broke with the last Discord API update. Code in this repo will not be updated as a reference for myself. New repo will be up soon(ish)
+
 A discord bot inspired on a robot from the anime [Dimension W](http://myanimelist.net/anime/31163/Dimension_W). Based on the [discord.js](https://github.com/hydrabolt/discord.js/) framework.
 
 ##todo-list:
